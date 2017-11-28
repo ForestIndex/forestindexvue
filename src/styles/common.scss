@@ -1,0 +1,41 @@
+.outerSection {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 80%;
+  padding: 2%;
+  margin: 1% 8%;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 0 .4rem gray inset;
+  border-radius: .3rem;
+}
+
+.mobile {
+  display: none;
+}
+
+.desktop {
+  display: block;
+}
+
+@media(max-width: 1080px) {
+  .box {
+    width: 98%;
+    margin: 0;
+    padding: 2%;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
+
+
