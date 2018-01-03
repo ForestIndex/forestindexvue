@@ -5,6 +5,10 @@ import fastClick from 'fastclick';
 import home from './components/home.vue';
 import search from './components/search.vue';
 
+if (process.env.NODE_ENV !== 'production') {
+  Vue.config.devtools = true;
+}
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(() => {

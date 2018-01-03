@@ -1,3 +1,24 @@
+@import '../styles/variables.scss';
+
+.columns {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  h3 {
+    margin-bottom: 0;
+  }
+  .col {
+    width: 48.5%;
+    padding: .5%;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .alignLeft {
+    text-align: left;
+  }
+}
+
 .outerSection {
   width: 100%;
   margin: 0;
@@ -5,9 +26,10 @@
 }
 
 .box {
+  max-width: 1080px;
   width: 80%;
   padding: 2%;
-  margin: 1% 8%;
+  margin: 1% auto;
   text-align: center;
   background-color: white;
   box-shadow: 0 0 .4rem gray inset;
@@ -15,22 +37,69 @@
 }
 
 .mobile {
-  display: none;
+  display: none !important;
 }
 
 .desktop {
   display: block;
 }
 
+.green {
+  color: $green;
+}
+
+.mainTitle {
+  font-size: 1.5rem;
+  margin: .5% 0;
+  width: 100%;
+  text-align: center;
+}
+
+.secondaryTitle {
+  font-size: 1rem;
+  margin: 10% 0 1% 0;
+  width:  100%;
+  text-align: center;
+}
+
+select {
+  border-radius: 0;
+  background-color: $gray;
+  color: white;
+  font-size: 1.2rem;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.softWrapper {
+  background-color: rgb(86.9%, 89.8%, 87.8%);
+  border-radius: .4rem;
+  padding: 1%;
+  width: auto;
+  margin: .5% 0;
+  text-align: center;
+  h3 {
+    margin: 0;
+  }
+}
+
+.zero {
+  margin: 0;
+  padding: 0;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
 @media(max-width: 1080px) {
   .box {
-    width: 98%;
+    width: 96%;
     margin: 0;
     padding: 2%;
   }
 
   .mobile {
-    display: block;
+    display: block !important;
   }
 
   .desktop {

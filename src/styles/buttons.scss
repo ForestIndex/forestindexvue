@@ -1,0 +1,55 @@
+button {
+  border: none;
+  border-radius: 0;
+  background-color: rgb(64.8%, 64.8%, 64.8%);
+  color: white;
+  font-size: 1.1rem;
+  box-shadow: 0 0 .6rem gray inset;
+  font-family: 'Nunito', sans-serif;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#search {
+  background-color: $green;
+  color: white;
+  font-size: 1.4rem;
+  max-width: 30%;
+  width: auto;
+  margin: 1% 36%;
+  padding: 1%;
+  border-radius: none;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(5.8%, 39%, 5.8%);
+  }
+  &:disabled {
+    background-color: rgb(48.6%, 51.5%, 48.6%);
+    color: black;
+  }
+}
+
+.red {
+  background-color: $red;
+  box-shadow: 0 0 .5rem $red2 inset;
+  color: white;
+
+  &:hover {
+    background-color: $red2;
+  }
+}
+
+@media(max-width: 1080px) {
+  #search {
+    width: 90%;
+    max-width: 90%;
+    margin: 8% 3% 1% 3%;
+  }
+}

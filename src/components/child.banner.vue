@@ -9,6 +9,15 @@
     margin: 0 40%;
   }
 }
+
+@media(max-width: 1080px) {
+  .banner {
+    img {
+      width: 80%;
+      margin: 0 10%;
+    }
+  }
+}
 </style>
 
 

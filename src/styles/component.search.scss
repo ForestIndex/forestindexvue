@@ -1,0 +1,83 @@
+.dropDown {
+  width: 68%;
+  margin: 1% 15%;
+  padding: 1%;
+  border: .05rem solid $gray;
+  font-size: 1.2rem;
+}
+
+.serviceList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  li {
+    list-style: none;
+    font-size: 1.3rem;
+    text-align: left;
+    padding: .4%;
+    width: 99%;
+    border-radius: .4rem;
+    &:hover {
+      cursor: pointer;
+      background-color: $gray;
+      color: white;
+    }
+  }
+  .active {
+    background-color: $green;
+    color: white;
+  }
+}
+.mobileDropDown {
+  width: 98%;
+  padding: 1%;
+  margin: 0 0 1% 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 2rem;
+  &:focus {
+    outline: none;
+  }
+}
+
+.checkField {
+  width: 98%;
+  margin: 0;
+  padding: 1%;
+  .checkBox {
+    margin: 0;
+    padding: 0;
+    span {
+      font-size: 1.1rem;
+      margin: 0 1%;
+      padding: 0;
+    }
+    input {
+      background-color: white;
+    }
+  }
+}
+
+.selected {
+  color: $green;
+  font-weight: bold;
+}
+
+.searchNotification {
+  color: white;
+  font-size: 1.4rem;
+  text-align: center;
+  text-shadow: 0 0 .5rem gray;
+}
+
+@media(min-width: 1080px) {
+  .titles {
+    text-align: left;
+  }
+}
+
+@media(max-width: 1080px) {
+  .mobileDropDown {
+    width: 98%;
+  }
+}

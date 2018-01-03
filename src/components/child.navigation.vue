@@ -30,15 +30,18 @@
 }
 @media(max-width: 1080px) {
   .navigation {
-    width: 60%;
+    width: 80%;
     height: 100vh;
     position: fixed;
-    left: -60%;
+    left: -80%;
     transition-duration: .5s;
+    background-color: $transparentDark;
     li {
       margin: 1% 0;
       width: 90%;
       display: block;
+      font-size: 2rem;
+      text-shadow: 0 0 .3rem $dark;
       &:nth-child(1) {
         position: fixed;
         display: block;
@@ -49,6 +52,7 @@
       }
       &:nth-child(2) {
         margin-left: 0;
+        margin-top: 6%;
       }
     }
   }
