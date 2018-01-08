@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
-    "build:production": "yarn files && webpack --config webpack.prod.js",
+    "build:prod": "yarn files && webpack --config webpack.prod.js",
     "files": "mkdir -p dist && cp src/index.html dist/ && cp -r src/media dist/",
     "dev": "webpack --config webpack.dev.js --watch",
     "start": "yarn && yarn files && yarn dev & serve dist"

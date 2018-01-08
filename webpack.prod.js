@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 
 const env = new Dotenv({
-  path: './dev.env'
+  path: './prod.env'
 });
 
 const occur = new webpack.optimize.OccurrenceOrderPlugin();
