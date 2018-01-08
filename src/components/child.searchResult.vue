@@ -48,7 +48,7 @@
   <li class="box searchResult">
     <ul class="zero columns">
       <li class="col listBusinessItem">
-        <img :src="pictures[picIdx]" :alt="user.info.businessName">
+        <img :src="baseUrl + image" :alt="user.info.businessName">
         <h1>{{ user.info.businessName }}</h1>
       </li>
 
@@ -67,19 +67,22 @@
 export default {
   data: function() {
     return {
-      pictures: [],
-      picIdx: 0
+      baseUrl: `${process.env.API_HOST}/api/images/`,
+      image: 'no-picture.png'
     };
   },
   props: [
     'user'
   ],
   mounted: function() {
-    this.pictures = this.user.info.images.map((i) => `${process.env.API_HOST}/api/images/${i}`);
+    if (this.user.info.images.length > 0) {
+      const latest = this.user.info.images.length - 1;
+      this.image = this.user.info.images[latest];
+    }
   },
   methods: {
     viewProfile: function() {
-      // this.$router.push()
+      this.$router.push({ name: 'profile', params: { id: this.user._id }});
     }
   }
 }

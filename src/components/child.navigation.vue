@@ -66,9 +66,9 @@
 <ul class="navigation" :class="{ open: panelOpen }">
   <li v-on:click="togglePanel"><i class="fa fa-bars" aria-hidden="true"></i></li>
   <li v-on:click="navigate('home')"><i class="fa fa-home" aria-hidden="true"></i> Home</li>
-  <li><i class="fa fa-info-circle" aria-hidden="true"></i> About</li>
+  <li v-on:click="navigate('about')"><i class="fa fa-info-circle" aria-hidden="true"></i> About</li>
   <li v-on:click="navigate('search')"><i class="fa fa-search" aria-hidden="true"></i> Search</li>
-  <li><i class="fa fa-envelope" aria-hidden="true"></i> Contact</li>
+  <li v-on:click="navigate('contact')"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</li>
 </ul>
 
 </template>
@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     navigate: function(page) {
-      this.$router.push(page);
+      this.$router.push({ name: page });
     },
     togglePanel: function() {
       this.panelOpen = !this.panelOpen;

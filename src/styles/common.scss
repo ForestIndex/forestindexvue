@@ -1,5 +1,15 @@
 @import '../styles/variables.scss';
 
+a {
+  color: $green;
+  text-decoration: none;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
 .columns {
   width: 100%;
   margin: 0;
@@ -48,6 +58,10 @@
   color: $green;
 }
 
+.red {
+  color: $red;
+}
+
 .mainTitle {
   font-size: 1.5rem;
   margin: .5% 0;
@@ -89,6 +103,10 @@ select {
 
 .fullWidth {
   width: 100%;
+}
+
+.white {
+  color: white;
 }
 
 @media(max-width: 1080px) {

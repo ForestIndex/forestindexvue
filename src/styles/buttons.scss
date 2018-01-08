@@ -14,7 +14,7 @@ button {
   }
 }
 
-#search {
+#submit {
   background-color: $green;
   color: white;
   font-size: 1.4rem;
@@ -36,7 +36,7 @@ button {
   }
 }
 
-.red {
+.redBtn {
   background-color: $red;
   box-shadow: 0 0 .5rem $red2 inset;
   color: white;
@@ -47,7 +47,7 @@ button {
 }
 
 @media(max-width: 1080px) {
-  #search {
+  #submit {
     width: 90%;
     max-width: 90%;
     margin: 8% 3% 1% 3%;

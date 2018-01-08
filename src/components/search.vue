@@ -7,8 +7,8 @@
 
 <template>
   <section class="outerSection">
-    <banner></banner>
-    <navigation></navigation>
+    <banner v-if="!scrolledDown"></banner>
+    <navigation :class="{ fixed: scrolledDown }"></navigation>
 
     <div class="box">
       <!-- Mobile Controls -->
@@ -27,7 +27,7 @@
           {{ category.name || 'None' }}
         </option>
       </select>
-      <button class="mobile red" v-if="display.selectedCategories.length > 0" v-on:click="clearCategories">Clear Category Filters</button>
+      <button class="mobile redBtn" v-if="display.selectedCategories.length > 0" v-on:click="clearCategories">Clear Category Filters</button>
       <ul class="zero fullWidth">
         <greenbox :key="category._id" class="mobile" v-for="category in display.selectedCategories" :obj="category"></greenbox>
       </ul>
@@ -43,7 +43,7 @@
         <option value=null disabled>Select Counties</option>
         <option v-for="county in counties" :key="county._id" :value="county._id">{{ county.name }}</option>
       </select>
-      <button class="mobile red" v-if=" display.selectedCounties.length > 0" v-on:click="clearCounties">Clear Counties Filter</button>
+      <button class="mobile redBtn" v-if=" display.selectedCounties.length > 0" v-on:click="clearCounties">Clear Counties Filter</button>
       <ul class="zero fullWidth">
         <greenbox class="mobile" :key="county._id" v-for="county in display.selectedCounties" :obj="county"></greenbox>
       </ul>
@@ -84,7 +84,7 @@
               <option value=null disabled>Select Counties</option>
               <option v-for="county in counties" :key="county._id" :value="county._id">{{ county.name }}</option>
             </select>
-            <button class="red" v-if=" display.selectedCounties.length > 0" v-on:click="clearCounties">Clear Counties Filter</button>
+            <button class="redBtn" v-if=" display.selectedCounties.length > 0" v-on:click="clearCounties">Clear Counties Filter</button>
             <ul>
               <greenbox class="desktop" :key="county._id" v-for="county in display.selectedCounties" :obj="county"></greenbox>
             </ul>
@@ -93,7 +93,7 @@
       </ul>
 
       <h3 v-if="!active.service._id">Select a Service to begin searching for businesses</h3>
-      <button id="search" :disabled="display.serviceName === null" v-on:click="search">Search {{ display.serviceName }}</button>
+      <button id="submit" :disabled="display.serviceName === null" v-on:click="search">Search {{ display.serviceName }}</button>
       <h3>Showing {{ searchResults.length }} result{{ searchResults.length > 1 ? 's' : '' }}</h3>
     </div>
 
@@ -104,7 +104,6 @@
     </ul>
   </section>
 </template>
-
 
 <script>
 import navigation from './child.navigation.vue';
@@ -120,6 +119,7 @@ export default {
       services: [],
       states: [],
       counties: [],
+      scrolledDown: false,
       active: {
         service: {
           name: '',
@@ -150,6 +150,7 @@ export default {
       this.display.serviceName = newVal;
       this.searchResults = [];
       this.notificationText = "";
+      
       return Promise.resolve(this.active.service._id)
       .then(this.getCategories)
       .catch((e) => console.log(e));
@@ -243,6 +244,17 @@ export default {
         return Promise.reject(err);
       });
     },
+    handleScroll: function() {
+      const h = window.innerHeight;
+      const scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+      const verticalOffset = scrollPos/h;
+
+      if (verticalOffset > .4) {
+        this.scrolledDown = true;
+      } else {
+        this.scrolledDown = false;
+      }
+    },
     search: function() {
       this.notificationText = "";
       const searchUser = {
@@ -267,11 +279,9 @@ export default {
     await this.getCounties();
   },
   created: function() {
+    window.addEventListener('scroll', this.handleScroll);
     return Promise.resolve()
-    .then(async () => {
-      await this.getServices();
-      return Promise.resolve();
-    })
+    .then(this.getServices)
     .catch((err) => {
       console.log(err);
     });

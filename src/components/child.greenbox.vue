@@ -2,7 +2,7 @@
 @import '../styles/variables.scss';
 
 .greenBox {
-  color: rgb(26.9%, 25.7%, 25.7%);
+  color: white;
   background-color: $thinGreen;
   padding: .2%;
   margin: 0 1%;

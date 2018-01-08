@@ -4,6 +4,9 @@ import VueResource from 'vue-resource';
 import fastClick from 'fastclick';
 import home from './components/home.vue';
 import search from './components/search.vue';
+import profile from './components/profile.vue';
+import about from './components/about.vue';
+import contact from './components/contact.vue';
 
 if (process.env.NODE_ENV !== 'production') {
   Vue.config.devtools = true;
@@ -29,6 +32,21 @@ const routes = [
      path: '/search',
      component: search,
      name: 'search'
+   },
+   {
+     path: '/users/:id',
+     component: profile,
+     name: 'profile'
+   },
+   {
+     path: '/about',
+     component: about,
+     name: 'about'
+   },
+   {
+     path: '/contact',
+     component: contact,
+     name: 'contact'
    },
    {
      path: '*',
