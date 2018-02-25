@@ -34,6 +34,7 @@
         <h5 class="secondaryTitle noMargTop">{{ user.info.address.street }} {{ user.info.address.city }}, {{ user.info.address.state.name }}</h5>
         <h5 v-if="!!user.info.phone" class="largeText">Call: <a :href="'tel:+' + user.info.phone">{{ user.info.phone }}</a></h5>
         <h5 v-if="!!user.info.email" class="largeText">Email: <a :href="'mailto:' + user.info.email">{{ user.info.email }}</a></h5>
+        <h5 v-if="!!user.info.websiteUrl" class="largeText"> Website: <a :href="user.info.websiteUrl" target="_blank">{{ user.info.websiteUrl }}</a></h5>
         <h6 class="secondaryTitle">Operational Counties:</h6>
         <span v-if="user.info.operationalCounties.length === 0">None</span>
         <span v-for="county in user.info.operationalCounties">{{ county.name }}<span v-if="renderComma(county)">, </span> </span>
